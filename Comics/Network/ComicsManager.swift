@@ -51,16 +51,16 @@ struct ComicsManager {
             let month = decodedData.month
             let day = decodedData.day
             let year = decodedData.year
-            let number = decodedData.number
+            let num = decodedData.num
             let news = decodedData.news
             let link = decodedData.link
             let transcript = decodedData.transcript
-            let image = decodedData.image
+            let img = decodedData.img
             let title = decodedData.title
-            let safeTitle = decodedData.safeTitle
-            let alternativeText = decodedData.alternativeText
+            let safe_title = decodedData.safe_title
+            let alt = decodedData.alt
             
-            let comic = ComicsModel(month: month, day: day, year: year, number: number, news: news, link: link, transcript: transcript, image: image, title: title, safeTitle: safeTitle, alternativeText: alternativeText)
+            let comic = ComicsModel(month: month, day: day, year: year, num: num, news: news, link: link, transcript: transcript, img: img, title: title, safe_title: safe_title, alt: alt)
             return comic
         } catch {
             delegate?.failWithError(error: error)

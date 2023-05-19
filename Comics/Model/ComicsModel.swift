@@ -11,14 +11,14 @@ struct ComicsModel: Codable {
     let month: String
     let day: String
     let year: String
-    let number: Int
+    let num: Int
     let news: String
     let link: String
     let transcript: String
-    let image: String
+    let img: String
     let title: String
-    let safeTitle: String
-    let alternativeText: String
+    let safe_title: String
+    let alt: String
 }
 
 //typealias Comics = [ComicsModel]

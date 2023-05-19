@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 
-class ComicsView: UIViewController {
+class ComicsView: UIViewController, UITextFieldDelegate {
     
-    //Fetching with manager
+    @IBOutlet weak var comicsImage: UIImageView!
+    @IBOutlet weak var comicTitle: UILabel!
+    
     var comicsManager = ComicsManager()
-    //Fetching with model
     var comics: ComicsModel?
     var comicNumber = 1
     
@@ -22,13 +23,32 @@ class ComicsView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        comicsManager.delegate = self
         fetchComics()
     }
     
     func fetchComics(){
         let number = String(comicNumber)
         comicsManager.fetchComics(number: number)
-        print("Fetching comic number: \(number)")
     }
-    
+}
+
+extension ComicsView : ComicsManagerDelegate {
+    func updateComics(_ comicsManager: ComicsManager, comic: ComicsModel) {
+        comics = comic
+        DispatchQueue.main.async {
+            self.comicTitle.text = "\(comic.title) (\(self.comicNumber)"
+            print("Henter comicnr")
+        }
+        ImageHelper().fetchImage(comic.img){ image in
+            DispatchQueue.main.async {
+                self.comicsImage.image = image ?? UIImage(named: "Image not found")
+                print("Fetching image")
+            }
+        }
+    }
+    func failWithError(error: Error) {
+        print("Feiler på fetch comic")
+        print(error.localizedDescription)
+    }
 }

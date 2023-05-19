@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C271B6D2A019EF300E5DAC7 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C271B6C2A019EF300E5DAC7 /* UIImageExtension.swift */; };
 		9C8A50F229FFE6C0008CA828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A50F129FFE6C0008CA828 /* AppDelegate.swift */; };
 		9C8A50F429FFE6C0008CA828 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A50F329FFE6C0008CA828 /* SceneDelegate.swift */; };
 		9C8A50F929FFE6C0008CA828 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A50F729FFE6C0008CA828 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C271B6C2A019EF300E5DAC7 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		9C8A50EE29FFE6C0008CA828 /* Comics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8A50F129FFE6C0008CA828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C8A50F329FFE6C0008CA828 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C271B6B2A019EA300E5DAC7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9C271B6C2A019EF300E5DAC7 /* UIImageExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9C8A50E529FFE6C0008CA828 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				9C8A512D2A001B87008CA828 /* Network */,
+				9C271B6B2A019EA300E5DAC7 /* Extensions */,
 				9C8A512829FFECCF008CA828 /* Views */,
 				9C8A512429FFE6CE008CA828 /* Model */,
 				9C8A50F129FFE6C0008CA828 /* AppDelegate.swift */,
@@ -301,6 +312,7 @@
 				9C8A50F229FFE6C0008CA828 /* AppDelegate.swift in Sources */,
 				9C8A50F429FFE6C0008CA828 /* SceneDelegate.swift in Sources */,
 				9C8A512629FFE6F5008CA828 /* ComicsModel.swift in Sources */,
+				9C271B6D2A019EF300E5DAC7 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
