@@ -19,6 +19,7 @@ struct ComicsModel: Codable {
     let title: String
     let safe_title: String
     let alt: String
+    
 }
 
 //typealias Comics = [ComicsModel]
