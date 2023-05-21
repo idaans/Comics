@@ -62,6 +62,11 @@ class ComicsView: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func favoritePressed(_ sender: Any) {
+    }
+    
+    
+    
 }
 
 extension ComicsView : ComicsManagerDelegate {

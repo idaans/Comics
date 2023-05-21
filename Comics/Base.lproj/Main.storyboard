@@ -37,14 +37,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seb-4R-0Q1">
-                                <rect key="frame" x="128" y="734" width="138" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Random comic"/>
                                 <connections>
-                                    <action selector="randomButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pMw-DH-u3c"/>
+                                    <action selector="favoritePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gGM-yd-IPV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ComicTitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Pnd-vr-dsT">
@@ -68,6 +62,15 @@
                                 <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system"/>
                                 <connections>
                                     <action selector="infoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BAr-00-Wg0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seb-4R-0Q1">
+                                <rect key="frame" x="127" y="709" width="138" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Random comic"/>
+                                <connections>
+                                    <action selector="randomButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pMw-DH-u3c"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,11 +108,11 @@
             </objects>
             <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
         </scene>
-        <!--Item-->
+        <!--Comics-->
         <scene sceneID="rO8-B2-9Hd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bxb-GY-nEC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="dxw-kY-Zgt"/>
+                    <tabBarItem key="tabBarItem" title="Comics" id="dxw-kY-Zgt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ja5-kb-9e9">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -131,20 +134,30 @@
                     <view key="view" contentMode="scaleToFill" id="TNI-Bv-czy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nqT-Vd-AYI">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4kA-yo-dT3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nqT-Vd-AYI" firstAttribute="leading" secondItem="4kA-yo-dT3" secondAttribute="leading" constant="16" id="99D-3P-mDL"/>
+                            <constraint firstItem="nqT-Vd-AYI" firstAttribute="trailing" secondItem="4kA-yo-dT3" secondAttribute="trailing" constant="16" id="Fxq-YT-gw7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Lh-uN-BWJ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZH-X9-Ryh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1949" y="194"/>
+            <point key="canvasLocation" x="1948.854961832061" y="193.66197183098592"/>
         </scene>
-        <!--Item-->
+        <!--Favorites-->
         <scene sceneID="Who-Eh-Mas">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KUa-cN-6Xu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="n9Z-Uj-Ywv"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="n9Z-Uj-Ywv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VF3-th-D3m">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
