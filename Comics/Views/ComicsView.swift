@@ -13,6 +13,7 @@ class ComicsView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var comicsImage: UIImageView!
     @IBOutlet weak var comicTitle: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var textField: UITextField!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -63,6 +64,24 @@ class ComicsView: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func searchIconPressed(_ sender: Any) {
+        textInput()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        return true
+    }
+    
+    func textInput(){
+        //Check input number, if match show comic, if not show error
+    }
+    
     
     @IBAction func favoritePressed(_ sender: Any) {
         saveFavorite(title: comics!.title, num: comics!.num, img: comics!.img)

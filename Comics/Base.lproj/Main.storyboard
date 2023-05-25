@@ -16,57 +16,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="83s-EL-rfr">
-                                <rect key="frame" x="16" y="237" width="361" height="299"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="83s-EL-rfr">
+                                <rect key="frame" x="16" y="236.33333333333334" width="361" height="364.66666666666663"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for comic" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="whH-yb-FKr">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for comic" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="whH-yb-FKr">
                                 <rect key="frame" x="16" y="125" width="295" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dut-nu-UpQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dut-nu-UpQ">
                                 <rect key="frame" x="327" y="124" width="50" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="NeD-Xa-nHm"/>
+                                    <constraint firstAttribute="width" constant="50" id="PDT-jq-wlc"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="searchIconPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LG9-4y-yda"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pw6-0x-pWi">
-                                <rect key="frame" x="326" y="545" width="51" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pw6-0x-pWi">
+                                <rect key="frame" x="326" y="610" width="51" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="O07-cf-Gqh"/>
+                                    <constraint firstAttribute="width" constant="51" id="quH-AC-XhG"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                                 <connections>
                                     <action selector="favoritePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gGM-yd-IPV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ComicTitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Pnd-vr-dsT">
-                                <rect key="frame" x="16" y="182" width="361" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ComicTitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Pnd-vr-dsT">
+                                <rect key="frame" x="16" y="182" width="361" height="26.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="comicNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFM-3s-y5a">
-                                <rect key="frame" x="16" y="545" width="112" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="comicNumber" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFM-3s-y5a">
+                                <rect key="frame" x="16" y="610" width="112" height="16"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igd-uV-9GH">
-                                <rect key="frame" x="268" y="544" width="50" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igd-uV-9GH">
+                                <rect key="frame" x="268" y="610" width="50" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="REz-Uf-Gba"/>
+                                    <constraint firstAttribute="height" constant="35" id="l28-qj-maU"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system"/>
                                 <connections>
                                     <action selector="infoPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BAr-00-Wg0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seb-4R-0Q1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seb-4R-0Q1">
                                 <rect key="frame" x="127" y="709" width="138" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="BIm-K9-LDr"/>
+                                    <constraint firstAttribute="height" constant="35" id="YQo-tz-Tu2"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Random comic"/>
                                 <connections>
@@ -76,6 +87,35 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dut-nu-UpQ" firstAttribute="leading" secondItem="whH-yb-FKr" secondAttribute="trailing" constant="16" id="3Bd-mG-gfO"/>
+                            <constraint firstItem="83s-EL-rfr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="6SV-wb-DGw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="83s-EL-rfr" secondAttribute="trailing" constant="16" id="7MK-qr-okd"/>
+                            <constraint firstItem="Igd-uV-9GH" firstAttribute="top" secondItem="83s-EL-rfr" secondAttribute="bottom" constant="9" id="9Hs-tv-9Rv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pnd-vr-dsT" secondAttribute="trailing" constant="16" id="9nr-in-nwg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pw6-0x-pWi" secondAttribute="trailing" constant="16" id="9sZ-HR-LGB"/>
+                            <constraint firstItem="whH-yb-FKr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="Cbz-cd-qtc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="seb-4R-0Q1" secondAttribute="trailing" constant="128" id="Cf8-xa-lJb"/>
+                            <constraint firstItem="whH-yb-FKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Hji-9v-LPv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Igd-uV-9GH" secondAttribute="bottom" constant="124" id="IBg-am-IAX"/>
+                            <constraint firstItem="Pnd-vr-dsT" firstAttribute="top" secondItem="whH-yb-FKr" secondAttribute="bottom" constant="23" id="Key-a9-WT7"/>
+                            <constraint firstItem="seb-4R-0Q1" firstAttribute="top" secondItem="83s-EL-rfr" secondAttribute="bottom" constant="108" id="Md3-jE-lwq"/>
+                            <constraint firstItem="Pnd-vr-dsT" firstAttribute="top" secondItem="Dut-nu-UpQ" secondAttribute="bottom" constant="23" id="Qco-Xg-zZu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dut-nu-UpQ" secondAttribute="trailing" constant="16" id="U7t-K5-7Is"/>
+                            <constraint firstItem="Pnd-vr-dsT" firstAttribute="top" secondItem="whH-yb-FKr" secondAttribute="bottom" constant="23" id="VEg-hu-jHa"/>
+                            <constraint firstItem="83s-EL-rfr" firstAttribute="top" secondItem="Pnd-vr-dsT" secondAttribute="bottom" constant="28" id="XEj-SE-yQm"/>
+                            <constraint firstItem="Pw6-0x-pWi" firstAttribute="leading" secondItem="Igd-uV-9GH" secondAttribute="trailing" constant="8" id="YEd-Mp-4mF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jFM-3s-y5a" secondAttribute="bottom" constant="143" id="ZMc-at-oY6"/>
+                            <constraint firstItem="jFM-3s-y5a" firstAttribute="top" secondItem="83s-EL-rfr" secondAttribute="bottom" constant="9" id="Zol-cD-Neo"/>
+                            <constraint firstItem="Pnd-vr-dsT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="b7d-J4-Gkg"/>
+                            <constraint firstItem="seb-4R-0Q1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="hXC-6r-eeV"/>
+                            <constraint firstItem="Pw6-0x-pWi" firstAttribute="top" secondItem="83s-EL-rfr" secondAttribute="bottom" constant="9" id="hd2-wT-8MD"/>
+                            <constraint firstItem="Dut-nu-UpQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="omr-Zm-8hX"/>
+                            <constraint firstItem="83s-EL-rfr" firstAttribute="top" secondItem="Pnd-vr-dsT" secondAttribute="bottom" constant="28" id="srw-Nx-pAN"/>
+                            <constraint firstItem="jFM-3s-y5a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="vbd-xs-ftM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="seb-4R-0Q1" secondAttribute="bottom" constant="25" id="wgg-T7-g8s"/>
+                            <constraint firstItem="Igd-uV-9GH" firstAttribute="top" secondItem="83s-EL-rfr" secondAttribute="bottom" constant="9" id="x7j-f6-NXf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0oK-9f-vvM"/>
                     <connections>
@@ -83,6 +123,7 @@
                         <outlet property="comicsImage" destination="83s-EL-rfr" id="SqC-Lf-buF"/>
                         <outlet property="imageView" destination="83s-EL-rfr" id="OJK-zs-XdC"/>
                         <outlet property="numberLabel" destination="jFM-3s-y5a" id="ld1-vF-rkc"/>
+                        <outlet property="textField" destination="whH-yb-FKr" id="XAb-zg-Gub"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
