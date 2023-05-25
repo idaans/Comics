@@ -14,7 +14,11 @@ class ComicsView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var comicTitle: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var comicsManager = ComicsManager()
+    var addFavoriteComics = FavoriteComicsView()
+    var favoriteComicsManager = FavoriteComicsManager()
     var comics: ComicsModel?
     var comicNumber = Int.random(in: 1..<2777)
     
@@ -32,12 +36,11 @@ class ComicsView: UIViewController, UITextFieldDelegate {
         let number = String(comicNumber)
         comicsManager.fetchComics(number: number)
     }
+
     
-    //TODO: Get random comic on button
-    
-    @IBAction func randomButton(_ sender: Any) {
-        randomComic()
+    @IBAction func randomButton(_ sender: Any){
         fetchComics()
+        randomComic()
     }
     
     //Fetching random comic onPress button
@@ -46,13 +49,12 @@ class ComicsView: UIViewController, UITextFieldDelegate {
         comicNumber = randomNumber
     }
     
-    @IBAction func infoPressed(_ sender: Any) {
+    @IBAction func infoPressed(_ sender: Any){
         infoAlert()
         print("Info pressed")
     }
     
     //Fix optional
-    //Can not force unwrap in case of crash
     //Removing optional string with operator ?? ""
     func infoAlert(){
         let comicInfo = "\n Comic #\(comics?.num ?? 00) Released: \(comics?.month ?? "").\(comics?.day ?? "").\(comics?.year ?? "")"
@@ -63,14 +65,27 @@ class ComicsView: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func favoritePressed(_ sender: Any) {
+        saveFavorite(title: comics!.title, num: comics!.num, img: comics!.img)
     }
     
-    
-    
+    func saveFavorite(title: String, num: Int, img: String){
+        let newFavorite = FavoriteComicsList(context: self.context)
+        newFavorite.title = comics!.title
+        newFavorite.num = Int16(comics!.num)
+        newFavorite.img = comics!.img
+        
+        do {
+            try context.save()
+            print("saved favorite \(comics!.title)")
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
-extension ComicsView : ComicsManagerDelegate {
-    func updateComics(_ comicsManager: ComicsManager, comic: ComicsModel) {
+extension ComicsView : ComicsManagerDelegate{
+    func updateComics(_ comicsManager: ComicsManager, comic: ComicsModel){
         comics = comic
         DispatchQueue.main.async {
             self.comicTitle.text = "\(comic.title)"
@@ -83,7 +98,7 @@ extension ComicsView : ComicsManagerDelegate {
             }
         }
     }
-    func failWithError(error: Error) {
+    func failWithError(error: Error){
         print("Feiler på fetch comic")
         print(error.localizedDescription)
     }

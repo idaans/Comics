@@ -20,6 +20,17 @@ struct ComicsModel: Codable {
     let safe_title: String
     let alt: String
     
+    init(month: String, day: String, year: String, num: Int, news: String, link: String, transcript: String, img: String, title: String, safe_title: String, alt: String) {
+        self.month = month
+        self.day = day
+        self.year = year
+        self.num = num
+        self.news = news
+        self.link = link
+        self.transcript = transcript
+        self.img = img
+        self.title = title
+        self.safe_title = safe_title
+        self.alt = alt
+    }
 }
-
-//typealias Comics = [ComicsModel]
