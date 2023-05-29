@@ -17,6 +17,7 @@ class FavoriteComicsManager {
     var favoritesList = [FavoriteComicsList]()
     
     // Fetching favorites from saved list
+    // Not in use
     func getAllFavorites(){
         do {
             self.favoritesList = try context.fetch(FavoriteComicsList.fetchRequest())
@@ -29,6 +30,7 @@ class FavoriteComicsManager {
     
     
     // Saving favorite with items in coredata
+    // Not in use
     func saveFavoriteComic(title: String, img: String, num: Int){
         let newFavorite = FavoriteComicsList(context: context)
         newFavorite.title = title
@@ -43,6 +45,7 @@ class FavoriteComicsManager {
     }
     
     // Delete comic from FavoriteComicsList in coredata
+    // Not in use
     func deleteFavoriteComic(favoriteComic: FavoriteComicsList){
         context.delete(favoriteComic)
         do {

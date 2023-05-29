@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class FavoriteComicsView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FavoriteComicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var favoriteTableView: UITableView!
     
@@ -46,7 +46,7 @@ class FavoriteComicsView: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         catch {
-            //error
+            print(error.localizedDescription)
         }
     }
 
@@ -59,6 +59,7 @@ class FavoriteComicsView: UIViewController, UITableViewDelegate, UITableViewData
         let list = self.favoritesList![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = ("\(object?.title) \(object?.num)")
+        //fetch image
         return cell
     }
 }

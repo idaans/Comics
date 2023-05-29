@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Comics View-->
+        <!--Comics View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ComicsView" id="BYZ-38-t0r" customClass="ComicsView" customModule="Comics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComicsView" id="BYZ-38-t0r" customClass="ComicsViewController" customModule="Comics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,13 +75,27 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seb-4R-0Q1">
                                 <rect key="frame" x="127" y="709" width="138" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="138" id="BIm-K9-LDr"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="138" id="BIm-K9-LDr"/>
                                     <constraint firstAttribute="height" constant="35" id="YQo-tz-Tu2"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Random comic"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Random comic">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="randomButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pMw-DH-u3c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l41-Hn-qs9">
+                                <rect key="frame" x="211" y="610" width="49" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="93D-oi-Ae0"/>
+                                    <constraint firstAttribute="height" constant="35" id="epQ-lh-CkN"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system"/>
+                                <connections>
+                                    <action selector="shareComic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k1A-4s-NJq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -94,12 +108,14 @@
                             <constraint firstItem="Igd-uV-9GH" firstAttribute="top" secondItem="83s-EL-rfr" secondAttribute="bottom" constant="9" id="9Hs-tv-9Rv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pnd-vr-dsT" secondAttribute="trailing" constant="16" id="9nr-in-nwg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pw6-0x-pWi" secondAttribute="trailing" constant="16" id="9sZ-HR-LGB"/>
+                            <constraint firstItem="Igd-uV-9GH" firstAttribute="leading" secondItem="l41-Hn-qs9" secondAttribute="trailing" constant="8" id="A0k-am-XDQ"/>
                             <constraint firstItem="whH-yb-FKr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="Cbz-cd-qtc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="seb-4R-0Q1" secondAttribute="trailing" constant="128" id="Cf8-xa-lJb"/>
                             <constraint firstItem="whH-yb-FKr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Hji-9v-LPv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Igd-uV-9GH" secondAttribute="bottom" constant="124" id="IBg-am-IAX"/>
                             <constraint firstItem="Pnd-vr-dsT" firstAttribute="top" secondItem="whH-yb-FKr" secondAttribute="bottom" constant="23" id="Key-a9-WT7"/>
                             <constraint firstItem="seb-4R-0Q1" firstAttribute="top" secondItem="83s-EL-rfr" secondAttribute="bottom" constant="108" id="Md3-jE-lwq"/>
+                            <constraint firstItem="seb-4R-0Q1" firstAttribute="top" secondItem="l41-Hn-qs9" secondAttribute="bottom" constant="64" id="PR6-mj-1fw"/>
                             <constraint firstItem="Pnd-vr-dsT" firstAttribute="top" secondItem="Dut-nu-UpQ" secondAttribute="bottom" constant="23" id="Qco-Xg-zZu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dut-nu-UpQ" secondAttribute="trailing" constant="16" id="U7t-K5-7Is"/>
                             <constraint firstItem="Pnd-vr-dsT" firstAttribute="top" secondItem="whH-yb-FKr" secondAttribute="bottom" constant="23" id="VEg-hu-jHa"/>
@@ -108,6 +124,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jFM-3s-y5a" secondAttribute="bottom" constant="143" id="ZMc-at-oY6"/>
                             <constraint firstItem="jFM-3s-y5a" firstAttribute="top" secondItem="83s-EL-rfr" secondAttribute="bottom" constant="9" id="Zol-cD-Neo"/>
                             <constraint firstItem="Pnd-vr-dsT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="b7d-J4-Gkg"/>
+                            <constraint firstItem="l41-Hn-qs9" firstAttribute="leading" secondItem="jFM-3s-y5a" secondAttribute="trailing" constant="83" id="bkd-2N-55u"/>
+                            <constraint firstItem="l41-Hn-qs9" firstAttribute="top" secondItem="83s-EL-rfr" secondAttribute="bottom" constant="9" id="bts-NU-Lx4"/>
                             <constraint firstItem="seb-4R-0Q1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="hXC-6r-eeV"/>
                             <constraint firstItem="Pw6-0x-pWi" firstAttribute="top" secondItem="83s-EL-rfr" secondAttribute="bottom" constant="9" id="hd2-wT-8MD"/>
                             <constraint firstItem="Dut-nu-UpQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="omr-Zm-8hX"/>
@@ -121,6 +139,7 @@
                     <connections>
                         <outlet property="comicTitle" destination="Pnd-vr-dsT" id="eSh-ob-Njy"/>
                         <outlet property="comicsImage" destination="83s-EL-rfr" id="SqC-Lf-buF"/>
+                        <outlet property="favoriteButton" destination="Pw6-0x-pWi" id="nRk-lo-Jct"/>
                         <outlet property="imageView" destination="83s-EL-rfr" id="OJK-zs-XdC"/>
                         <outlet property="inputTextField" destination="whH-yb-FKr" id="uPY-j7-sU0"/>
                         <outlet property="numberLabel" destination="jFM-3s-y5a" id="ld1-vF-rkc"/>
@@ -168,10 +187,10 @@
             </objects>
             <point key="canvasLocation" x="1053" y="-501"/>
         </scene>
-        <!--Favorite Comics View-->
+        <!--Favorite Comics View Controller-->
         <scene sceneID="GXT-RJ-nEN">
             <objects>
-                <viewController id="pe2-BX-T5y" customClass="FavoriteComicsView" customModule="Comics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pe2-BX-T5y" customClass="FavoriteComicsViewController" customModule="Comics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TNI-Bv-czy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,6 +237,7 @@
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

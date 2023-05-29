@@ -8,17 +8,21 @@
 import Foundation
 import UIKit
 
-class ComicsView: UIViewController, UITextFieldDelegate {
+class ComicsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var comicsImage: UIImageView!
     @IBOutlet weak var comicTitle: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    let imageFilled = UIImage(systemName: "heart.fill")
+    let imageNotFilled = UIImage(systemName: "heart")
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var comicsManager = ComicsManager()
-    var addFavoriteComics = FavoriteComicsView()
+    var addFavoriteComics = FavoriteComicsViewController()
     var favoriteComicsManager = FavoriteComicsManager()
     var comics: ComicsModel?
     var comicNumber = Int.random(in: 1..<2777)
@@ -36,6 +40,7 @@ class ComicsView: UIViewController, UITextFieldDelegate {
     func fetchComics(){
         let number = String(comicNumber)
         comicsManager.fetchComics(number: number)
+        favoriteButton.setImage(imageNotFilled, for: .normal)
     }
 
     
@@ -69,6 +74,7 @@ class ComicsView: UIViewController, UITextFieldDelegate {
         textInput()
         inputTextField.endEditing(true)
         inputTextField.text = ""
+        favoriteButton.setImage(imageNotFilled, for: .normal)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -88,9 +94,18 @@ class ComicsView: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //Activity for sharing comics
+    @IBAction func shareComic(_ sender: Any) {
+        let urlComicString = "https://xkcd.com/\(comicNumber)/"
+                
+        let activityController = UIActivityViewController(activityItems: [urlComicString], applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
+    }
     
+    //Heart changing color when pressed
     @IBAction func favoritePressed(_ sender: Any) {
         saveFavorite(title: comics!.title, num: comics!.num, img: comics!.img)
+        favoriteButton.setImage(imageFilled, for: .normal)
     }
     
     func saveFavorite(title: String, num: Int, img: String){
@@ -101,7 +116,7 @@ class ComicsView: UIViewController, UITextFieldDelegate {
         
         do {
             try context.save()
-            print("saved favorite \(comics!.title)")
+            print("Saved favorite \(comics!.title)")
         }
         catch {
             print(error.localizedDescription)
@@ -109,7 +124,7 @@ class ComicsView: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension ComicsView : ComicsManagerDelegate{
+extension ComicsViewController : ComicsManagerDelegate{
     func updateComics(_ comicsManager: ComicsManager, comic: ComicsModel){
         comics = comic
         DispatchQueue.main.async {

@@ -10,7 +10,7 @@ import UIKit
 
 class ImageHelper {
     
-    // Async fetching image from the url API if it exist.
+    // Fetching image from the url API if it exist.
     func fetchImage(_ image: String, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: image) else {
             completion(nil)
