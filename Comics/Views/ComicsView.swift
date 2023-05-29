@@ -13,7 +13,7 @@ class ComicsView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var comicsImage: UIImageView!
     @IBOutlet weak var comicTitle: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var inputTextField: UITextField!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -55,7 +55,6 @@ class ComicsView: UIViewController, UITextFieldDelegate {
         print("Info pressed")
     }
     
-    //Fix optional
     //Removing optional string with operator ?? ""
     func infoAlert(){
         let comicInfo = "\n Comic #\(comics?.num ?? 00) Released: \(comics?.month ?? "").\(comics?.day ?? "").\(comics?.year ?? "")"
@@ -65,21 +64,28 @@ class ComicsView: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    //Check text input field, remove keyboard when editing end
     @IBAction func searchIconPressed(_ sender: Any) {
         textInput()
+        inputTextField.endEditing(true)
+        inputTextField.text = ""
     }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.text = ""
-    }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+        textInput()
         return true
     }
     
     func textInput(){
         //Check input number, if match show comic, if not show error
+        //Search by int with operatores
+        let newComic = Int(inputTextField.text ?? "") ?? 0
+        if newComic < 1 || newComic > 1 {
+            comicsManager.fetchComics(number: String(newComic))
+            print("Henter comic: \(newComic)")
+        } else {
+            print("Cant fetch comic")
+        }
     }
     
     
@@ -118,7 +124,13 @@ extension ComicsView : ComicsManagerDelegate{
         }
     }
     func failWithError(error: Error){
-        print("Feiler på fetch comic")
+        print("Can't fetch comic")
         print(error.localizedDescription)
+        
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "No comic by that number", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
